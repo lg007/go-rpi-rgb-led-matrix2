@@ -97,6 +97,10 @@ type HardwareConfig struct {
 
 	// Name of GPIO mapping used
 	HardwareMapping string
+	
+	// This is missing from the orogonal library
+	// To set the type of multiplexing
+        Multiplexing int
 }
 
 func (c *HardwareConfig) geometry() (width, height int) {
@@ -114,6 +118,7 @@ func (c *HardwareConfig) toC() *C.struct_RGBLedMatrixOptions {
 	o.brightness = C.int(c.Brightness)
 	o.scan_mode = C.int(c.ScanMode)
 	o.hardware_mapping = C.CString(c.HardwareMapping)
+	o.multiplexing = C.int(c.Multiplexing) // Missing from original library
 
 	if c.ShowRefreshRate == true {
 		C.set_show_refresh_rate(o, C.int(1))
