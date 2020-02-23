@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"net/rpc"
 
-	"github.com/mcuadros/go-rpi-rgb-led-matrix"
+	"github.com/lg007/go-rpi-rgb-led-matrix2"
 )
 
 type RPCMatrix struct {
